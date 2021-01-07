@@ -10,8 +10,7 @@ const router = require('./controllers/carros')
 
 routes.use('/admin',admin)
 routes.use('/usuarios',usuarios)
-routes.use(auth.auth)
-routes.use('/carros',carros)
-routes.use('/registros',registros)
+routes.use('/carros',auth.auth,carros)
+routes.use('/registros',auth.auth,registros)
 
 module.exports = routes
