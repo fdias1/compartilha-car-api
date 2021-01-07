@@ -90,9 +90,8 @@ router.post('/balance',async (req,res,next) => {
             })
         }
         const idRegistros = registros.map(registro => registro._id)
-        console.log(idRegistros)
         await Registro.updateMany({_id:{$in:idRegistros}},{ativo:false})
-        res.status(200).send('ok')
+        res.status(200).send(succesfulResponse(idRegistros))
 
     } catch (err) {
         res.status(400).send(failiureResponse(err))
