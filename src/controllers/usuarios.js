@@ -4,7 +4,6 @@ const auth = require('../utils/auth')
 const {succesfulResponse,failiureResponse} = require('../utils/apiResponse')
 const crud = require('../utils/crud')(Usuario)
 const express = require('express')
-const { json } = require('express')
 const router = express.Router()
 
 router.post('/',async (req,res) => {
