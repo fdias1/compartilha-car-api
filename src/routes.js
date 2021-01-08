@@ -4,12 +4,11 @@ const routes = express.Router()
 const usuarios = require('./controllers/usuarios')
 const carros = require('./controllers/carros')
 const registros = require('./controllers/registros')
-const admin = require('./utils/admin.js')
-const auth = require('./utils/auth')
+const admin = require('./controllers/admin.js')
 
 routes.use('/admin',admin)
 routes.use('/usuarios',usuarios)
-routes.use('/carros',auth.auth,carros)
-routes.use('/registros',auth.auth,registros)
+routes.use('/carros',carros)
+routes.use('/registros',registros)
 
 module.exports = routes

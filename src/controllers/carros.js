@@ -1,10 +1,13 @@
 const Carro = require('../models/Carro')
 const Usuario = require('../models/Usuario')
+const auth = require('../utils/auth')
 
 const {succesfulResponse,failiureResponse} = require('../utils/apiResponse')
 const crud = require('../utils/crud')(Carro)
 const express = require('express')
 const router = express.Router()
+
+router.use(auth.auth)
 
 router.post('/',async (req,res) => {
     try {

@@ -1,9 +1,12 @@
 const Registro = require('../models/Registro')
+const auth = require('../utils/auth')
 
 const {succesfulResponse,failiureResponse} = require('../utils/apiResponse')
 const crud = require('../utils/crud')(Registro)
 const express = require('express')
 const router = express.Router()
+
+router.use(auth.auth)
 
 router.post('/',async (req,res) => {
     try {
