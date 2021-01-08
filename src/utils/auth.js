@@ -11,7 +11,7 @@ const auth = async (req,res,next) => {
             res.status(403).send('unauthorized')
         }
     } catch (err) {
-        console.log(err)
+        res.status(403).send('unauthorized')
     }
 }
 
