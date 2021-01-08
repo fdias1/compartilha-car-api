@@ -1,7 +1,9 @@
 const add = async (targetModel,targetRelArrName,triggerDoc,triggerRelArrName) => {
     for (let id of triggerDoc[triggerRelArrName]) {
         const targetDoc = await targetModel.findById(id)
-        targetDoc[targetRelArrName].push(triggerDoc._id)
+        if(targetDoc[targetRelArrName].indexOf(triggerDoc._id) < 0) {
+            targetDoc[targetRelArrName].push(triggerDoc._id)
+        }
         await targetDoc.updateOne(targetDoc)
     }
 }
